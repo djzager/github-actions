@@ -1,9 +1,11 @@
 {
   "name": "github-actions",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "GitHub actions relevent to the Konveyor organization.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm install && tsc",
+    "format": "prettier --write '**/*.ts'",
+    "format-check": "prettier --check '**/*.ts'"
   },
   "keywords": [],
   "author": "",
