@@ -1,0 +1,18 @@
+name: GitHub Issue Slack Digest
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  reconcile-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reconcile Issue
+        id: create
+        uses: konveyor/github-actions/gh-issue-slack-digest@main
+        with:
+          slackWebhookUrl: ${{ secretes.SLACK_WEBHOOK_URL }}
+          messageHeader: "Issues needing triage for ..."
+          hasLabels: "needs-triage"
